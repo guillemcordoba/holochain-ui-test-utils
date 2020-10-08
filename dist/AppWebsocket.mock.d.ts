@@ -1,14 +1,15 @@
 import { AgentPubKey, CellId } from "@holochain/conductor-api";
-export declare type MockedZomes = {
-    [zome_name: string]: any;
-};
+import { DnaMock } from "./dna.mock";
 export declare class AppWebsocketMock {
-    protected dnaHash: AgentPubKey;
-    protected zomes: MockedZomes;
-    cell_data: (string | AgentPubKey[])[][];
-    constructor(dnaHash: AgentPubKey, zomes: MockedZomes);
+    protected dnasToMock: DnaMock[];
+    agentPubKey: AgentPubKey;
+    cells: Array<{
+        cell_id: CellId;
+        dna: DnaMock;
+    }>;
+    constructor(dnasToMock: DnaMock[]);
     appInfo(): Promise<{
-        cell_data: (string | AgentPubKey[])[][];
+        cell_data: (string | CellId)[][];
     }>;
     callZome(args: {
         cap: void;
