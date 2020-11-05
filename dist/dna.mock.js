@@ -1,8 +1,8 @@
-import { hashToString, randomHash } from "./utils";
+import { randomHash } from "./utils";
 export class DnaMock {
     constructor(zomes) {
         this.zomes = zomes;
-        this.dnaHash = hashToString(randomHash());
+        this.dnaHash = randomHash();
     }
     async callZome(args) {
         return this.zomes[args.zome_name][args.fn_name](args.payload, args.provenance);

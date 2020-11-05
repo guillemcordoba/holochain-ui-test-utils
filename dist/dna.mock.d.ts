@@ -1,10 +1,10 @@
-import { AgentPubKey } from "@holochain/conductor-api";
+import { AgentPubKey, Hash } from "@holochain/conductor-api";
 export declare type MockedZomes = {
     [zome_name: string]: any;
 };
 export declare class DnaMock {
     protected zomes: MockedZomes;
-    dnaHash: string;
+    dnaHash: Hash;
     constructor(zomes: MockedZomes);
     callZome(args: {
         zome_name: string;
