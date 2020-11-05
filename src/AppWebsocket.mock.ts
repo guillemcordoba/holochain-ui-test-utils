@@ -1,10 +1,10 @@
 import { AgentPubKey, CellId } from "@holochain/conductor-api";
 import { DnaMock } from "./dna.mock";
-import { hashToString, randomHash } from "./utils";
+import { hashToString, randomPubKeyRaw } from "./utils";
 import { isEqual } from "lodash-es";
 
 export class AppWebsocketMock {
-  agentPubKey: AgentPubKey = randomHash();
+  agentPubKey: AgentPubKey = randomPubKeyRaw();
   cells: Array<{ cell_id: CellId; dna: DnaMock }> = [];
 
   constructor(protected dnasToMock: DnaMock[]) {

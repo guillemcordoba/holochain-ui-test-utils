@@ -1,12 +1,12 @@
 import { AgentPubKey, Hash } from "@holochain/conductor-api";
-import { randomHash } from "./utils";
+import { randomDnaHashRaw } from "./utils";
 
 export type MockedZomes = {
   [zome_name: string]: any;
 };
 
 export class DnaMock {
-  dnaHash: Hash = randomHash();
+  dnaHash: Hash = randomDnaHashRaw();
   constructor(protected zomes: MockedZomes) {}
 
   async callZome(args: {

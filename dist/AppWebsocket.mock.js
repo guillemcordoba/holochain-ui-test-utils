@@ -1,9 +1,9 @@
-import { randomHash } from "./utils";
+import { randomPubKeyRaw } from "./utils";
 import { isEqual } from "lodash-es";
 export class AppWebsocketMock {
     constructor(dnasToMock) {
         this.dnasToMock = dnasToMock;
-        this.agentPubKey = randomHash();
+        this.agentPubKey = randomPubKeyRaw();
         this.cells = [];
         this.cells = dnasToMock.map((dnaToMock) => ({
             cell_id: [dnaToMock.dnaHash, this.agentPubKey],

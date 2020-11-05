@@ -1,4 +1,3 @@
-import * as Buffer from "buffer";
 export function randomByte() {
     return Math.floor(Math.random() * 1000) % 256;
 }
@@ -8,14 +7,20 @@ export function randomEntryHash() {
 export function randomPubKey() {
     return `uhCAk${randomString(49)}`;
 }
-export function randomHash() {
+export function randomDnaHashRaw() {
     return {
-        hash: Buffer.Buffer.from(Array(35)
+        hash: Uint8Array.from(Array(35)
             .fill(false)
             .map((_) => randomByte())),
-        hash_type: Buffer.Buffer.from(Array(3)
+        hash_type: Uint8Array.from([132, 45, 36]),
+    };
+}
+export function randomPubKeyRaw() {
+    return {
+        hash: Uint8Array.from(Array(35)
             .fill(false)
             .map((_) => randomByte())),
+        hash_type: Uint8Array.from([132, 32, 36]),
     };
 }
 function randomString(length) {

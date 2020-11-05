@@ -23,8 +23,5 @@
   },
   "dependencies": {
     "lodash-es": "^4.17.15"
-  },
-  "peerDependencies": {
-    "buffer": "^6.0.1"
   }
 }
